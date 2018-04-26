@@ -1,22 +1,21 @@
-
 // I have no idea why this isn't working very frustrated i feel like my syntax is correct please dont give F ;) 
 require("dotenv").config();
 
-var keys =require("./keys.js");
+var keys =require("./keys");
 
 var command = process.argv[2];
 
-var twitter =require("twitter");
-var spotify = require('node-spotify-api');
-// var request = require('request'
-// );
+var Twitter =require("twitter");
+var Spotify = require('node-spotify-api');
+var request = require('request');
+var spotify = new Spotify(keys.spotify);
 
 switch(command){
     case "my-tweets":
         twitter();
         break;
     case "spotify-this-song":
-        spotify();
+        runspotify();
         break;
     case "movie-this":
         movies();
@@ -41,8 +40,8 @@ function twitter (){
     });
 }
 
-function spotify (){
-    var spotify = new Spotify(keys.spotify);
+function runspotify (){
+    // var spotify1 = new spotify(keys.spotify);
 
     spotify.search({ type: 'track',
 
@@ -62,13 +61,14 @@ function spotify (){
 
 }
 
-//
-function movies() {
+
+
+// function movies() {
 //     var movie = "Mr.Nobody";
 //     var queryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
-//
+
 // }
-//
+
 // request(queryUrl)
 // {
 //     if (!movie) {
@@ -79,9 +79,6 @@ function movies() {
 //run functions
 
     twitter();
-    spotify();
-    movies();
-}
-
-// });
-
+    runspotify();
+//     movies();
+// }
