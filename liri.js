@@ -1,4 +1,4 @@
-// I have no idea why this isn't working very frustrated i feel like my syntax is correct please dont give F ;) 
+//can get both spotify and twitter api's to work omdb was working but isn't anymore 
 require("dotenv").config();
 
 var keys =require("./keys");
